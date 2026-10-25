@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nessa Mae B. Delos Santos | BSIT Student Portfolio</title>
+    <meta name="description" content="Student portfolio of Nessa Mae Delos Santos, BSIT student.">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ---------- Base ---------- */
+        :root {
+            --bg: #090d0b;
+            --card: #121a15;
+            --border: #1e2d24;
+            --emerald-300: #6ee7b7;
+            --emerald-400: #34d399;
+            --emerald-500: #10b981;
+            --emerald-600: #059669;
+            --emerald-900: #064e3b;
+            --emerald-950: #022c22;
+            --text: #e2e8f0;
+            --muted: #9ca3af;
+            --muted-2: #6b7280;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection { background: var(--emerald-500); color: #000; }
+
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--emerald-400);
+            outline-offset: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .glass-card {
+            background: rgba(18, 26, 21, 0.85);
+            border: 1px solid rgba(30, 45, 36, 0.9);
+            border-radius: 1rem;
+        }
+
+        .emerald-gradient-text {
+            color: var(--emerald-400); /* fallback */
+            background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ---------- Navigation ---------- */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 50;
+            background: rgba(18, 26, 21, 0.92);
+            border-bottom: 1px solid rgba(6, 78, 59, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #fff;
+        }
+
+        .brand-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 0.75rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--emerald-400);
+        }
+
+        .brand span span { color: var(--emerald-400); }
+
+        .nav-links {
+            display: none;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover { color: var(--emerald-400); }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #d1d5db;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .menu-btn:hover { color: #fff; }
+
+        .mobile-menu {
+            display: none;
+            border-top: 1px solid rgba(6, 78, 59, 0.4);
+            background: var(--card);
+            padding: 0.5rem 1rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .mobile-menu.open { display: block; }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 0;
+            color: #d1d5db;
+        }
+
+        .mobile-menu a:hover { color: var(--emerald-400); }
+
+        /* ---------- Layout ---------- */
+        main {
+            padding-top: 6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+        }
+
+        .section-heading {
+            border-left: 4px solid var(--emerald-500);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-heading h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        /* ---------- Home ---------- */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(2, 44, 34, 0.8);
+            border: 1px solid rgba(6, 95, 70, 0.5);
+            color: var(--emerald-300);
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge .dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: var(--emerald-400);
+        }
+
+        .hero .hi {
+            color: var(--emerald-400);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .intro {
+            color: var(--muted);
+            font-size: 1rem;
+            max-width: 42rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--emerald-600);
+            color: #fff;
+            box-shadow: 0 10px 20px -8px rgba(6, 78, 59, 0.6);
+        }
+
+        .btn-primary:hover { background: var(--emerald-500); }
+
+        .btn-secondary {
+            background: var(--card);
+            border: 1px solid rgba(6, 95, 70, 0.4);
+            color: #e5e7eb;
+        }
+
+        .btn-secondary:hover { border-color: rgba(16, 185, 129, 0.5); }
+
+        /* ---------- About ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .about-card { padding: 1.5rem; }
+
+        .about-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 i { color: var(--emerald-400); }
+
+        .about-card p {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .learning-box {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background: rgba(9, 13, 11, 0.6);
+            border: 1px solid rgba(6, 78, 59, 0.3);
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .learning-box .label {
+            font-weight: 600;
+            color: var(--emerald-300);
+            margin-bottom: 0.5rem;
+        }
+
+        .learning-box ul {
+            list-style: disc;
+            padding-left: 1rem;
+        }
+
+        .learning-box li { margin-bottom: 0.25rem; }
+
+        .skill { margin-bottom: 1rem; }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .skill-top .name { color: #e5e7eb; }
+        .skill-top .pct { color: var(--emerald-400); }
+
+        .bar {
+            width: 100%;
+            height: 0.5rem;
+            background: var(--bg);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--emerald-500);
+            border-radius: 9999px;
+        }
+
+        /* ---------- Projects ---------- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s;
+        }
+
+        .project-card:hover { border-color: rgba(16, 185, 129, 0.5); }
+
+        .project-thumb {
+            height: 12rem;
+            background: rgba(2, 44, 34, 0.6);
+            border-bottom: 1px solid rgba(6, 78, 59, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-thumb i {
+            font-size: 3rem;
+            color: rgba(16, 185, 129, 0.3);
+        }
+
+        .project-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .project-body h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .project-body p {
+            color: var(--muted);
+            font-size: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .contribution {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--emerald-400);
+        }
+
+        .project-footer {
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(6, 78, 59, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+        }
+
+        .project-footer .tools { color: var(--muted-2); }
+
+        .project-footer a {
+            color: var(--emerald-400);
+            font-weight: 500;
+        }
+
+        .project-footer a:hover { text-decoration: underline; }
+
+        /* ---------- Contact ---------- */
+        .contact-card {
+            padding: 1.5rem;
+            max-width: 36rem;
+        }
+
+        .contact-card > p {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-list { display: flex; flex-direction: column; gap: 1rem; }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background: rgba(9, 13, 11, 0.8);
+            border: 1px solid rgba(6, 78, 59, 0.4);
+            color: #e5e7eb;
+            transition: border-color 0.2s;
+        }
+
+        .contact-item:hover { border-color: rgba(16, 185, 129, 0.5); }
+
+        .contact-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            flex-shrink: 0;
+            border-radius: 0.5rem;
+            background: rgba(16, 185, 129, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--emerald-400);
+        }
+
+        .contact-item .small { font-size: 0.75rem; color: var(--muted); }
+        .contact-item .value { font-size: 0.875rem; font-weight: 600; word-break: break-all; }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid rgba(6, 78, 59, 0.4);
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--muted-2);
+        }
+
+        /* ---------- Larger screens ---------- */
+        @media (min-width: 640px) {
+            .container { padding: 0 1.5rem; }
+            .hero h1 { font-size: 3.75rem; }
+            .hero .tagline { font-size: 1.5rem; }
+            .hero .intro { font-size: 1.125rem; }
+            .section-heading h2 { font-size: 2rem; }
+            .about-card { padding: 2rem; }
+            .contact-card { padding: 2rem; }
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .menu-btn, .mobile-menu { display: none !important; }
+            .project-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .container { padding: 0 2rem; }
+            .about-grid { grid-template-columns: repeat(2, 1fr); }
+            .project-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#home" class="brand">
+                    <div class="brand-icon"><i class="fa-solid fa-code"></i></div>
+                    <span>Nessa Mae <span>Delos Santos</span></span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About &amp; Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <button type="button" class="menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-controls="mobileMenu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="#home" onclick="toggleMobileMenu()">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()">About &amp; Skills</a>
+            <a href="#projects" onclick="toggleMobileMenu()">Projects</a>
+            <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- HOME -->
+        <section id="home" class="hero">
+            <div class="badge"><span class="dot"></span> BSIT Student</div>
+            <p class="hi">Hi, I'm</p>
+            <h1>Nessa Mae Delos Santos</h1>
+            <p class="tagline emerald-gradient-text">Learning web development and software design</p>
+            <!-- EDIT: write 2-3 sentences about yourself and the kind of work you want to do -->
+            <p class="intro">
+                I'm a BSIT student learning to build websites and applications. This portfolio shows my classwork,
+                my current skills, and how I'm growing as a developer.
+            </p>
+            <div class="btn-row">
+                <a href="#projects" class="btn btn-primary">View my projects <i class="fa-solid fa-arrow-down" style="font-size:0.75rem"></i></a>
+                <a href="#contact" class="btn btn-secondary">Contact me</a>
+            </div>
+        </section>
+
+        <!-- ABOUT & SKILLS -->
+        <section id="about">
+            <div class="section-heading">
+                <h2>About &amp; Skills</h2>
+                <p>Background, interests, and current abilities</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="glass-card about-card">
+                    <h3><i class="fa-solid fa-user-graduate"></i> Background</h3>
+                    <!-- EDIT: your school, year level, and interests -->
+                    <p>
+                        I'm studying Bachelor of Science in Information Technology at Cebu Eastern College Inc.. I'm interested in
+                        web development, UI design.
+                    </p>
+                    <div class="learning-box">
+                        <div class="label">What I'm learning now</div>
+                        <!-- EDIT: keep only what is true for you -->
+                        <ul>
+                            <li>HTML, CSS, and JavaScript for web pages</li>
+                            <li>C# and object-oriented programming</li>
+                            <li>UI design with Figma</li>
+                            <li>Git and GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card about-card">
+                    <h3><i class="fa-solid fa-layer-group"></i> Current abilities</h3>
+                    <!-- EDIT: change the percentages (both the number and the width) so they are honest -->
+                    <div class="skill">
+                        <div class="skill-top"><span class="name">HTML &amp; CSS</span><span class="pct">85%</span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="HTML and CSS">
+                            <div class="bar-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-top"><span class="name">JavaScript basics</span><span class="pct">70%</span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript basics">
+                            <div class="bar-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-top"><span class="name">C# / Object-oriented programming</span><span class="pct">75%</span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="C# and object-oriented programming">
+                            <div class="bar-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-top"><span class="name">Git &amp; GitHub</span><span class="pct">80%</span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Git and GitHub">
+                            <div class="bar-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="section-heading">
+                <h2>Projects</h2>
+                <p>My classwork and practice projects</p>
+            </div>
+
+           
+            <div class="project-grid">
+
+                <!-- Project 1 -->
+                <article class="glass-card project-card">
+                    <div class="project-thumb">
+                        <img src="pic/Screenshot 2026-10-25 113023.png" alt="Screenshot of Project 1"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                        <i class="fa-solid fa-boxes-stacked" style="display:none"></i>
+                    </div>
+                    <div class="project-body">
+                        <h3>Dessert System  </h3>
+                        <p>Product Catalog: It manages and displays various products like ice cream, desserts, and snacks</p>
+                        <div class="contribution">My contribution: UI</div>
+                        <div class="project-footer">
+                            <span class="tools">Tools used: HTML5, CSS3, JavaScript,<br>Python & Django Framework and SQLite </span>
+                            <a href="https://github.com/limbagadaniela/POS_django.git" target="https://github.com/limbagadaniela/POS_django.git" rel="noopener">View project</a>
+                           
+                        </div>
+                    </div>
+                </article>
+
+
+                <!-- Project 2 -->
+                <article class="glass-card project-card">
+                    <div class="project-thumb">
+                        <img src="pic/batobatopick.png" alt="Screenshot of Project 2"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                        <i class="fa-solid fa-calculator" style="display:none"></i>
+                    </div>
+                    <div class="project-body">
+                        <h3>BatoBatoPick</h3>
+                        <p>Bato Bato Pick is an interactive web-based mini-game where players go head-to-head against a computer bot in the classic hand game of Rock, Paper, and Scissors.  
+                            How to play: Choose your move by clicking either Rock, Paper, or Scissors, and the system will instantly generate the bot's choice to determine the winner.
+                        </p>
+                        <div class="contribution">As the lead developer and programmer, I designed and implemented the core game logic, interactive user interface elements, and bot decision-making mechanics that power the Bato Bato Pick experience.</div>
+                        <div class="project-footer">
+                            <span class="tools">Tools used: HTML5, CSS3 and JavaScript</span>
+                            <a href="https://github.com/nessamaedelossantos-art/GAMEapii" target="https://github.com/nessamaedelossantos-art/GAMEapii" rel="noopener">View project</a>
+                           
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="glass-card project-card">
+                    <div class="project-thumb">
+                        <img src="pic/portfolio.png" alt="Screenshot of Project 3"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                        <i class="fa-solid fa-paint-roller" style="display:none"></i>
+                    </div>
+                    <div class="project-body">
+                        <h3>Portfolio</h3>
+                        <p>It serves as a digital portfolio to showcase my identity, background, classwork, skills, and development projects to visitors.</p>
+                        <div class="contribution">As the creator and developer, I designed and built this portfolio website to showcase my identity, academic background as a BSIT student</div>
+                        <div class="project-footer">
+                            <span class="tools">Tools used: HTML5, CSS3 and JavaScript </span>
+                            <a href="https://github.com/nessamaedelossantos-art/DelosSantos-Portfolio.git" target="https://github.com/nessamaedelossantos-art/DelosSantos-Portfolio.git" rel="noopener">View project</a>
+                            
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="section-heading">
+                <h2>Contact</h2>
+                <p>Reach out by email or find me online</p>
+            </div>
+
+            <div class="glass-card contact-card">
+                <p>Have a question about my work? Send me an email.</p>
+
+                <div class="contact-list">
+                    <a href="mailto:nessamaedelossantos@gmail.com" target="mailto:nessamaedelossantos@gmail.com" rel="noopener" class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <div class="small">Email</div>
+                            <div class="value">nessamaedelossantos@gmail.com</div>
+                        </div>
+                    </a>
+
+                    <!-- EDIT: your GitHub profile (or delete this block) -->
+                    <a href="https://github.com/nessamaedelossantos-art" target="https://github.com/nessamaedelossantos-art" rel="noopener" class="contact-item">
+                        <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+                        <div>
+                            <div class="small">GitHub</div>
+                            <div class="value">https://github.com/nessamaedelossantos-art</div>
+                        </div>
+                    </a>
+
+                    <!--
+                        OPTIONAL RESUME: put your file at assets/resume.pdf, then remove the comment markers
+                        around this block. Delete the block if you don't have a resume.
+
+                    <a href="assets/resume.pdf" download class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-file-arrow-down"></i></div>
+                        <div>
+                            <div class="small">Resume</div>
+                            <div class="value">Download resume (PDF)</div>
+                        </div>
+                    </a>
+                    -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; Nessa Mae Delos Santos 2026</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
